@@ -7,3 +7,4 @@ chromadb
 langsmith
 pypdf
 langchain-ollama
+langchain-chroma
