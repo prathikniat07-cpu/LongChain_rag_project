@@ -1,0 +1,6 @@
+.env
+__pycache__/
+.ipynb_checkpoints/
+chroma_fixed_store/
+chroma_openai_store/
+*.log

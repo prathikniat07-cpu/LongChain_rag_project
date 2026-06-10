@@ -1,0 +1,26 @@
+from langchain_ollama import OllamaLLM, OllamaEmbeddings, ChatOllama
+
+from langchain_openai import OpenAIEmbeddings, ChatOpenAI
+
+# Function to detect if Ollama is running locally
+
+    print("✅ Local Ollama detected (running on port 11434)")
+
+    print("⚠️ Local Ollama NOT detected. Will use Cloud APIs (Groq + OpenAI) as fallback.")
+
+    embeddings = OllamaEmbeddings(model=CONFIG["embedding_model"])
+
+    print("Embeddings loaded from local Ollama:", CONFIG["embedding_model"])
+
+    # Fallback to OpenAI embeddings
+
+    if not os.getenv("OPENAI_API_KEY"):
+
+        os.environ["OPENAI_API_KEY"] = "your-openai-api-key-here"
+
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+
+    print("Embeddings loaded from OpenAI (Cloud)")
+    llm = ChatOllama(model="llama3.1", temperature=0.1)
+
+    print("LLM loaded from local Ollama: llama3.1")
